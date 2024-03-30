@@ -1,0 +1,12 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: fatura-gw
+  cloud:
+    gateway:
+      routes:
+        - id: customer-service
+          uri: lb://FATURA-UYGULAMASI
+          predicates:
+            - Path=/api/customers/**
